@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+    font-family: serif;
+}
+
+legend {
+    border: 2px solid #fec230 !important;
+    border-radius: 6px !important;
+}
+
+body .ui-fieldset {
+    border: 2px solid #6c757d !important;
+    border-radius: 6px !important;
+}
+
+.text-dark {
+    color: #6c757d!important;
+}
+
+body .ui-sidebar {
+    background-color: #6c757d !important;
+    color: #333333;
+    padding: 0.571em 1em;
+    border: 1px solid transparent;
+    box-shadow: 0 0 6px 3px rgb(0 0 0 / 16%);
+}
+
+body .pi {
+    font-size: 1.25em;
+    color: white;
+    position: relative;
+    top: 0.3em;
+    left: 0.3em;
+    cursor: pointer;
+}
+
+body .ui-table .ui-table-thead > tr.pointsTableHeader > th {
+    padding: 0.571em 0.857em;
+    border: none !important;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #6c757d;
+}
+
+body .ui-table .ui-table-tbody>tr.pointsTableHeader>td {
+    padding: 0.571em 0.857em;
+    border: none !important;
+    font-weight: 700;
+    color: #6c757d;
+    background-color: #f4f4f4;;
+}

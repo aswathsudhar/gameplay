@@ -1,0 +1,65 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="HomeTitle mt-5 text-center">
+    <div style="font-size:5.5rem;"><span class="text-dark font-weight-bold">GAME</span> ~ <span
+      class="text-warning font-weight-bold">PLAY</span></div>
+  </div>
+
+  <div class="container text-center">
+    <form [formGroup]="playerForm">
+      <div class="formFields mt-5">
+        <input type="text" formControlName="fullName" [ngClass]="{'is-invalid' : submitted && f.fullName.errors}" [(ngModel)]="PlayerName" pInputText placeholder="Enter Your Name" class="inputNameField">
+        <button class="mx-3 homeSubmit" (click)="SubmitPlayer()">SUBMIT</button>
+        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback text-left fs-4 d-block">
+            <div *ngIf="f.fullName.errors.required">
+              Please enter your name
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container mt-5">
+    <p-fieldset legend="Game Info">
+        <ul class="Info-Play">
+          <li>Game will have only 30 seconds .</li>
+          <li>Only one player allow to play .</li>
+          <li>Game will automatically closed after 30 seconds .</li>
+        </ul>
+        <p-fieldset legend="How to play">
+          <ul class="Info-Play">
+            <li>Look the circle color & Enter the color name what you seen in the circle .</li>
+            <li>After entering the word you've to submit the color .</li>
+            <li>Correct answers consider as point 1 .</li>
+            <li>Wrong answers consider as point 0 .</li>
+            <li>There is no minus points for wrong answers .</li>
+          </ul>
+        </p-fieldset>
+    </p-fieldset>
+  </div>
+</div>
+
+
+<p-toast position="center" key="S" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div style="text-align: center">
+          <div class="text-center">
+              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+              <h4 class="mt-4">Player name <span class="text-dark font-weight-bold">{{PlayerName}}</span> already exist</h4>
+              <p>{{message.detail}}</p>
+          </div>
+          <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="TryWithExisting()" label="Yes" id="resultBtn"
+                    class="ui-button-secondary"></button>
+            </div>
+
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onReject()" label="No" id="resultBtn"
+                    class="ui-button-secondary"></button>
+            </div>
+
+        </div>
+      </div>
+  </ng-template>
+</p-toast>

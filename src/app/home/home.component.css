@@ -1,0 +1,38 @@
+.inputNameField{
+    width:60%;
+    height: 3rem; 
+    font-size: 19px;
+    font-variant: all-petite-caps;
+}
+
+legend {
+    border: 1px solid #c8c8c8 !important;
+    border-radius: 6px;
+}
+
+.Info-Play li{
+    list-style-type: square;
+    padding: 0.4rem;
+}
+
+.homeSubmit{
+    border: none;
+    border-radius: 4px;
+    color: white;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.2rem;
+    background-color: #6c757d;
+    cursor: pointer;
+}
+
+.homeSubmit:focus{
+    outline: none;
+}
+
+#resultBtn {
+    width: 100%;
+    background-color: #41474c;
+    margin-left: 0;
+    color: white;
+}

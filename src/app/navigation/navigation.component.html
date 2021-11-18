@@ -1,0 +1,30 @@
+
+<p-sidebar [(visible)]="sideBar" [baseZIndex]="10000">
+  <div class="mt-3 mx-3">
+      <h3><span class="text-white font-weight-bold">GAME</span> ~ <span
+              class="text-warning font-weight-bold">PLAY</span></h3>
+  </div>
+
+  <ul class="mt-2 SideMenuBar">
+      <li [routerLink]="['/home']" (click)="sideBar = false"><i class="fa fa-home"></i>HOME</li>
+      <li [routerLink]="['/playersdetails']" (click)="sideBar = false"><i class="fa fa-users"></i>PLAYERS</li>
+      <li [routerLink]="['/pointstable']" (click)="sideBar = false"><i class="fa fa-table"></i>POINT TABLE</li>
+      <li [routerLink]="['/aboutus']" (click)="sideBar = false"><i class="fa fa-address-card"></i>ABOUT US</li>
+  </ul>
+</p-sidebar>
+
+
+<div class="container-fluid">
+  <div class="row p-3 bg-secondary">
+      <div class="col-md-12 mx-3">
+          <h2><span class="text-white font-weight-bold">GAME</span> ~ <span
+                  class="text-warning font-weight-bold">PLAY</span>
+              <span><i class="fa fa-cog fa-spin text-white SideBar-arrow mx-3" (click)="sideBar = true">
+              </i>
+              <span *ngIf="NameBoolean" class="text-white float-right">Welcome : <span class="text-warning">{{PlayerName}}</span> </span>
+          </span>
+          </h2>
+
+      </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<app-navigation></app-navigation>
+
+<div class="container">
+    <div class="d-flex justify-content-around mt-5">
+        <div class="col-md-4 text-center">
+            <h4 class="text-warning font-weight-bold"><small class="text-dark">Player Name :</small> {{PlayerName |
+                uppercase}}</h4>
+        </div>
+        <div class="col-md-4 text-center">
+            <button class="StartGameBtn" [disabled]="disabledBtns" (click)="StartGame('fontId', 'circleId')">Start Game</button>
+        </div>
+        <div class="col-md-4">
+            <button class="EndGameBtn float-right" (click)="ExitGame()">Exit Game</button>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <section class="d-flex justify-content-around">
+            <div class="col-md-4 m-1">
+                <div class="card">
+                    <div class="cardDetails">
+                        <p-fieldset legend="GAME - INFO">
+                            <legend>Please read below</legend>
+                            <ul class="text-left">
+                                <li>Only one player allow to play</li>
+                                <li>Game will have only 30 seconds</li>
+                                <li>You can't pause while game started</li>
+                                <li>Game will automatically closed after 30 seconds</li>
+                            </ul>
+                        </p-fieldset>
+                    </div>
+                    <small class="mt-3">Tip: <q>After entering your answer just press ENTER . It will automatically submit .</q></small>
+                </div>
+            </div>
+
+            <div class="col-md-4 m-1">
+                <div class="card">
+                    <div class="cardDetails">
+                        <span class="circle" id="circleId">
+                            <p class="font-weight-bold" id="fontId">{{FontName | uppercase}}
+                                <span class="text-danger d-block">{{timeLeft * 1000 | date:"00:ss"}}</span>
+                            </p>
+                        </span>
+
+                        <div class="mt-3">
+                            <form [formGroup]="InputForm">
+                                <input type="text" formControlName="colorName"
+                                    [ngClass]="{'is-invalid' : submitted && f.colorName.errors}" pInputText [(ngModel)]="PlayerScores"
+                                    placeholder="Enter the Color" class="w-100">
+
+                                <div *ngIf="submitted && f.colorName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.colorName.errors.required">
+                                        Please Enter Your Answer
+                                    </div>
+                                </div>
+
+                                <button [disabled]="EnableSubBtn" class="mt-3 w-50 SubmitColorBtn"
+                                    (click)="SubmitResults('circleId', 'fontId')">SUBMIT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 m-1">
+                <div class="card">
+                    <div class="cardDetails">
+                        <p-fieldset legend="HOW TO PLAY">
+                            <legend>Please read below</legend>
+                            <ul class="text-left">
+                                <li>Look the circle color & Enter the color name what you seen in the circle</li>
+                                <li>After entering the word you've to submit the color</li>
+                                <li>Correct answers consider as point 1</li>
+                                <li>Wrong answers consider as point 0</li>
+                                <li>There is no minus points for wrong answers</li>
+                            </ul>
+                        </p-fieldset>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<p-toast position="center" key="S" (onClose)="ExitGame()" [modal]="true" [baseZIndex]="3000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <!-- <h5 class="resultTitle">{{PlayerName | uppercase}}</h5> -->
+            <h3 class="resultTitle">{{message.summary}}</h3>
+            <div class="resultDetails text-center">
+                <h6 style="font-weight: 600;">Correct Answers<i class="pi pi-check-circle text-success"></i></h6>
+                <p class="wrongAns">{{CorrectAnswers}}</p>
+            </div><br>
+
+            <div class="resultDetails text-center">
+                <h6 style="font-weight: 600;">Wrong Answers<i class="pi pi-times-circle text-danger"></i></h6>
+                <p class="wrongAns">{{WrongAnswers}}</p>
+            </div>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="GameTryAgain()" label="Try Again" id="resultBtn"
+                    class="ui-button-secondary"></button>
+            </div>
+
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="ExitGame()" label="Exit Game" id="resultBtn"
+                    class="ui-button-secondary"></button>
+            </div>
+
+        </div>
+    </ng-template>
+</p-toast>

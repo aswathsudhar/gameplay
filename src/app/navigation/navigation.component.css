@@ -1,0 +1,23 @@
+:host ::ng-deep button {
+    margin-right: .95em;
+}
+
+.SideBar-arrow{
+    cursor: pointer;
+}
+
+.SideMenuBar{
+    list-style-type: none;
+}
+
+.SideMenuBar i{
+    margin-right: 1rem;
+}
+
+.SideMenuBar li{
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
