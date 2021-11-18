@@ -15,11 +15,13 @@ export class HomeComponent implements OnInit {
   submitted = false;
   PlayerName: any;
   PlayerNameArray : any = [];
+  GuardActive : boolean
   // @Output() event = new EventEmitter<string>();
 
   constructor(private formBuild: FormBuilder, private router: Router, private messageService: MessageService) { }
 
   ngOnInit() {
+    this.GuardActive = false
     if (localStorage.getItem('All_Players')) {
       this.PlayerNameArray = JSON.parse(localStorage.getItem('All_Players'))
     }
@@ -33,6 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   onReject(){
+    localStorage.removeItem('EnableGuard')
     this.messageService.clear('S')
   }
 
@@ -41,9 +44,9 @@ export class HomeComponent implements OnInit {
     if (this.playerForm.invalid) {
       return
     }
-
+    this.GuardActive = true
     localStorage.setItem("PlayerName", this.PlayerName)
-    localStorage.setItem('EnableGuard', 'true')
+    localStorage.setItem('EnableGuard', JSON.stringify(this.GuardActive))
 
     if(localStorage.getItem('All_Players')){
       var existingPlayers = this.PlayerNameArray.some(res => {

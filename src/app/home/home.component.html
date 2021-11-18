@@ -10,7 +10,7 @@
       <div class="formFields mt-5">
         <input type="text" formControlName="fullName" [ngClass]="{'is-invalid' : submitted && f.fullName.errors}" [(ngModel)]="PlayerName" pInputText placeholder="Enter Your Name" class="inputNameField">
         <button class="mx-3 homeSubmit" (click)="SubmitPlayer()">SUBMIT</button>
-        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback text-left fs-4 d-block">
+        <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback text-center fs-4 d-block">
             <div *ngIf="f.fullName.errors.required">
               Please enter your name
             </div>
