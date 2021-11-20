@@ -14,12 +14,12 @@ export class PlayGameComponent implements OnInit {
 
   PlayerName: any
   Colors: any
-  timeLeft: number = 20;
+  timeLeft: number = 25;
   interval;
 
-  borderColorArray: any = ['blue', 'green', 'yellow', 'red', 'orange', 'purple', 'violet', 'brown', 'cyan', 'grey', 'pink', 'black', 'whitesmoke', 'tomato', 'indigo', 'maroon', 'ivory', 'yellowgreen'];
+  borderColorArray: any = ['blue', 'green', 'yellow', 'red', 'orange', 'purple', 'violet', 'brown', 'cyan', 'grey', 'pink', 'black', 'white', 'tomato', 'indigo', 'maroon', 'ivory'];
 
-  fontColorArray = ['yellowgreen', 'ivory', 'maroon', 'indigo', 'tomato', 'whitesmoke', 'black', 'pink', 'grey', 'blue', 'green', 'yellow', 'red', 'orange', 'purple', 'violet', 'brown', 'cyan'];
+  fontColorArray = ['ivory', 'maroon', 'indigo', 'tomato', 'white', 'black', 'pink', 'grey', 'blue', 'green', 'yellow', 'red', 'orange', 'purple', 'violet', 'brown', 'cyan'];
 
   Bordercount: number = 0;
   FontName: any;
@@ -103,7 +103,7 @@ export class PlayGameComponent implements OnInit {
     this.submitted = false;
     this.disabledBtns = false;
     this.EnableSubBtn = true;
-    this.timeLeft = 15;
+    this.timeLeft = 25;
     this.CorrectAnswers = 0;
     this.WrongAnswers = 0;
   }

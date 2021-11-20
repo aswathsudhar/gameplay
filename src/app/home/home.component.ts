@@ -58,8 +58,6 @@ export class HomeComponent implements OnInit {
          return 
      }
     }
-
-
     this.PlayerNameArray.push({
       playerName: this.PlayerName,
       correctAnswers: 0,

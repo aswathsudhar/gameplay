@@ -5,7 +5,7 @@
 
   <div class="mt-3">
     <p-table [columns]="cols" [value]="players" [responsive]="true" class="text-center" sortMode="multiple"
-      [multiSortMeta]="[{field: 'correctAnswers', order: -1}]" [resizableColumns]="true" [autoLayout]="true">
+      [multiSortMeta]="[{field: 'correctAnswers', order: -1}, {field: 'wrongAnswers', order: -1}]" [resizableColumns]="true" [autoLayout]="true">
       <ng-template pTemplate="header" let-columns>
         <tr>
           <th colspan="5">Player's Details</th>
@@ -25,7 +25,7 @@
       <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
         <tr class="pointsTableHeader">
           <td [ngStyle]="{'width':'10%'}">
-            {{rowIndex + 1}} <span *ngIf="rowIndex < 2" class="text-success"> Q</span>
+            {{rowIndex + 1}} <span *ngIf="rowIndex < 4" class="text-success"> Q</span>
           </td>
           <td *ngFor="let col of columns" [ngSwitch]="true">
             <span *ngSwitchCase="col.field == 'playerName'">
@@ -34,7 +34,7 @@
             <span *ngSwitchDefault>{{rowData[col.field]}}</span>
           </td>
           <td [ngStyle]="{'width':'10%'}">
-            <button pButton icon="pi pi-trash" [disabled]="rowIndex < 2" class="ui-button-danger"
+            <button pButton icon="pi pi-trash" [disabled]="rowIndex < 4" class="ui-button-danger"
               (click)="OpenDeletePlayers(rowIndex)"></button>
           </td>
         </tr>
